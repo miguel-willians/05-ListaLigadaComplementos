@@ -70,7 +70,7 @@ void menu()
 
 void inicializar()
 {
-	// se a lista j� possuir elementos
+	// se a lista já possuir elementos
 // libera a memoria ocupada
 	NO* aux = primeiro;
 	while (aux != NULL) {
@@ -131,12 +131,11 @@ void inserirElemento()
 	}
 	else
 	{
-		// procura o final da lista
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
+		while(ult->prox != NULL){
+			ult= ult->prox;
 		}
-		aux->prox = novo;
+		ult->prox = novo;
+		cout << "Número adicionado \n";
 	}
 }
 
