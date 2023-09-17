@@ -131,39 +131,82 @@ void inserirElemento()
 	}
 	else
 	{
-		// procura o final da lista
 		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
+		if(aux->prox == NULL){
+			 if(novo->valor == aux->valor){
+                cout << "Elemento duplicado, repita o processo. \n";
+				return;
+            }
+			aux->prox = novo;
+			cout << "Número adicionado a lista ordenada (1) \n";
+			return;
 		}
-		aux->prox = novo;
-	}
-}
-//minha soluçao 
-else
-	{
-		// procura o final da lista
-		NO* aux = primeiro;
-		NO* ant;
-		while (novo->valor < aux->valor) {
-			ant = aux;
-			ant->prox = novo;
-			aux = aux->prox;
-			novo->prox = aux;
-			break;
-		}
+		
+		do {
+            if(novo->valor == aux->valor){
+                cout << "Elemento duplicado, repita o processo. \n";
+                break;
+            }
+            if(novo->valor < aux->prox->valor){
+                NO*ant = aux; //guarda o valor do anterior ao novo número
+                novo->prox = aux->prox; // novo aponta para o valor maior
+                ant->prox = novo; //anterior aponta pro novo número
+                aux = aux->prox;
+				cout << "Número adicionado a lista ordenada \n";
+				break;
+            }
+			if (aux == NULL){
+				aux->prox = novo;
+				break;				
+			}
+		} while (aux->prox != NULL);
 	}
 }	
 
 
 void excluirElemento()
 {
-
+	int excluir;
+	cout << "Digite o número que deseja excluir:";
+	cin >> excluir;
+	NO* aux = primeiro;
+	while (aux->prox != NULL) {
+		if (aux->prox->valor == excluir)
+		{
+			NO* ant = aux; // guarda o valor do anterior ao excluir
+			aux = aux->prox; // aux se torna o valor do excluir
+			ant->prox = aux->prox; // o ponteiro do anterior aponta para o próximo do excluir 
+			free(aux); // libera o excluir
+			cout << "Número excluído";
+			break;
+		}
+		else{
+			cout << "Número não encontrado. \n";
+			break;
+		}
+	}
+	if (aux == NULL) {
+		cout << "Número não encontrado. \n";
+	}
 }
 
 void buscarElemento()
 {
-
+	int busca;
+	cout << "Digite um valor para a busca:";
+	cin >> busca;
+	NO* aux = primeiro;
+	while (aux != NULL) {
+		if (aux->valor == busca)
+		{
+			cout << "Número encontrado. \n";
+			break;
+		}
+		aux = aux->prox;
+	}
+	if (aux == NULL) {
+		cout << "Número não encontrado. \n";
+	}
 }
 
 
