@@ -138,7 +138,7 @@ void inserirElemento()
 				return;
             }
 			aux->prox = novo;
-			cout << "Número adicionado a lista ordenada (1) \n";
+			cout << "Número adicionado a lista ordenada \n";
 			return;
 		}
 		
