@@ -22,3 +22,7 @@ Projeto ListaLigadaOrdenada
 - [ ] Altere a função inserirElemento de maneira que os elementos sejam inseridos em ordem e não duplicados.
 - [ ] Altere a funções buscarElemento e excluirElemento para que sejam otimizadas já que os elementos da lista estão em ordem.
 
+### Feito por:
+Nome: Miguel Willians 
+Email: miguel.oliveira12@fatec.sp.gov.br
+
