@@ -128,14 +128,13 @@ void inserirElemento()
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
+		ult = novo;
 	}
 	else
 	{
-		while(ult->prox != NULL){
-			ult= ult->prox;
-		}
 		ult->prox = novo;
-		cout << "Número adicionado \n";
+		ult = novo;
+		cout << "Número adicionado" << endl;
 	}
 }
 
