@@ -142,24 +142,28 @@ void inserirElemento()
 			return;
 		}
 
-		do {
+		else
+	{
+		NO* aux = primeiro;
+		while (aux->prox != NULL) {
 			if (novo->valor == aux->valor) {
 				cout << "Elemento duplicado, repita o processo. \n";
 				break;
 			}
-			if (novo->valor < aux->prox->valor) {
+			if (aux == NULL || novo->valor < aux->valor) {
 				NO* ant = aux; //guarda o valor do anterior ao novo número
 				novo->prox = aux->prox; // novo aponta para o valor maior
 				ant->prox = novo; //anterior aponta pro novo número
-				aux = aux->prox;
 				cout << "Número adicionado a lista ordenada \n";
 				break;
 			}
 			else {
 				aux->prox = novo;
+				cout << "Número adicionado a lista ordenada \n";
 				break;
 			}
-		} while (aux->prox != NULL);
+			aux = aux->prox;
+		} 
 	}
 }
 
