@@ -155,7 +155,7 @@ void inserirElemento()
 				cout << "Número adicionado a lista ordenada \n";
 				break;
             }
-			if (aux == NULL){
+			if (aux->prox == NULL){
 				aux->prox = novo;
 				break;				
 			}
