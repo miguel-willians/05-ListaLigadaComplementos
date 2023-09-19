@@ -132,37 +132,36 @@ void inserirElemento()
 	else
 	{
 		NO* aux = primeiro;
-		if(aux->prox == NULL){
-			 if(novo->valor == aux->valor){
-                cout << "Elemento duplicado, repita o processo. \n";
+		if (aux->prox == NULL) {
+			if (novo->valor == aux->valor) {
+				cout << "Elemento duplicado, repita o processo. \n";
 				return;
-            }
+			}
 			aux->prox = novo;
 			cout << "Número adicionado a lista ordenada \n";
 			return;
 		}
-		
+
 		do {
-            if(novo->valor == aux->valor){
-                cout << "Elemento duplicado, repita o processo. \n";
-                break;
-            }
-            if(novo->valor < aux->prox->valor){
-                NO*ant = aux; //guarda o valor do anterior ao novo número
-                novo->prox = aux->prox; // novo aponta para o valor maior
-                ant->prox = novo; //anterior aponta pro novo número
-                aux = aux->prox;
+			if (novo->valor == aux->valor) {
+				cout << "Elemento duplicado, repita o processo. \n";
+				break;
+			}
+			if (novo->valor < aux->prox->valor) {
+				NO* ant = aux; //guarda o valor do anterior ao novo número
+				novo->prox = aux->prox; // novo aponta para o valor maior
+				ant->prox = novo; //anterior aponta pro novo número
+				aux = aux->prox;
 				cout << "Número adicionado a lista ordenada \n";
 				break;
-            }
-			if (aux->prox == NULL){
+			}
+			else {
 				aux->prox = novo;
-				break;				
+				break;
 			}
 		} while (aux->prox != NULL);
 	}
-}	
-
+}
 
 void excluirElemento()
 {
