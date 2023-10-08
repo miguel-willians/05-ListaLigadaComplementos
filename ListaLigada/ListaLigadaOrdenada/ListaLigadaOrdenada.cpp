@@ -124,48 +124,40 @@ void inserirElemento()
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
+	novo->ant = NULL;
 
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
+		ultimo = novo;
 	}
-	else
+	
+    else
 	{
 		NO* aux = primeiro;
-		if (aux->prox == NULL) {
-			if (novo->valor == aux->valor) {
-				cout << "Elemento duplicado, repita o processo. \n";
+		while (aux->prox != NULL){
+			aux = aux->prox;
+			if (novo->valor == aux->valor){
+				cout << "Elemento duplicado, repita o processo." << endl;
 				return;
 			}
-			aux->prox = novo;
-			cout << "Número adicionado a lista ordenada \n";
-			return;
-		}
-
-		else
-	{
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			if (novo->valor == aux->valor) {
-				cout << "Elemento duplicado, repita o processo. \n";
-				break;
-			}
-			if (aux == NULL || novo->valor < aux->valor) {
-				NO* ant = aux; //guarda o valor do anterior ao novo número
-				novo->prox = aux->prox; // novo aponta para o valor maior
-				ant->prox = novo; //anterior aponta pro novo número
-				cout << "Número adicionado a lista ordenada \n";
-				break;
-			}
-			else {
+			if (aux->valor > novo->valor){
+				NO* maior = aux;
+				aux = aux->ant;
 				aux->prox = novo;
-				cout << "Número adicionado a lista ordenada \n";
-				break;
+				novo->ant = aux;
+				novo->prox = maior;
+				maior->ant = novo;
+				cout << "Número adicionado a lista ordenada" << endl;
+				return;
 			}
-			aux = aux->prox;
-		} 
-	}
-}
+		}
+		if (aux->prox == NULL){
+			ultimo->prox = novo;
+			novo->ant = ultimo;
+			ultimo = ultimo->prox;
+			cout << "Número adicionado a lista ordenada" << endl;
+		}
 
 void excluirElemento()
 {
